@@ -1,0 +1,54 @@
+import DOM from "./DOM";
+
+(() => {
+  const id = Number(prompt("please enter your user id"));
+  const getData = async (id) => {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/get_user/${id}`, {
+        mode: "cors",
+      });
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const buyCoffee = async (id) => {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/buy/${id}`, {
+        mode: "cors",
+      });
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const updateUI = (data) => {
+    DOM.REWARD_COFFEE_COUNTER.innerText = data.coffee_reward;
+    DOM.COFFEE_COUNTER_LABEL.innerText = data.coffee_counter;
+    DOM.PROGRESS_BAR.value = data.coffee_counter;
+  };
+
+  getData(id).then((res) => {
+    if (res?.new_user) {
+      alert("I created your account with the id " + id);
+    }
+    console.log(res);
+    updateUI(res.user);
+  });
+
+  DOM.BUY_BUTTON.addEventListener("click", () => {
+    buyCoffee(id).then((res) => {
+      updateUI(res.user);
+    });
+  });
+})();
