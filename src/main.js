@@ -4,9 +4,13 @@ import DOM from "./DOM";
   const id = Number(prompt("please enter your user id"));
   const getData = async (id) => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/get_user/${id}`, {
-        mode: "cors",
-      });
+      const response = await fetch(
+        `https://coffe-store-api.fly.dev//get_user/${id}`,
+        {
+          mode: "CORS",
+          method: "GET",
+        }
+      );
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
       }
@@ -19,9 +23,13 @@ import DOM from "./DOM";
 
   const buyCoffee = async (id) => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/buy/${id}`, {
-        mode: "cors",
-      });
+      const response = await fetch(
+        `https://coffe-store-api.fly.dev//buy/${id}`,
+        {
+          mode: "CORS",
+          method: "GET",
+        }
+      );
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
       }
