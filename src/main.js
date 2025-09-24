@@ -1,4 +1,4 @@
-import DOM from "./DOM";
+import DOM from "./DOM.js";
 
 (() => {
   const id = Number(prompt("please enter your user id"));
