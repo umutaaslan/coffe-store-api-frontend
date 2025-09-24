@@ -7,7 +7,7 @@ import DOM from "./DOM";
       const response = await fetch(
         `https://coffe-store-api.fly.dev//get_user/${id}`,
         {
-          mode: "CORS",
+          mode: "cors",
           method: "GET",
         }
       );
@@ -26,7 +26,7 @@ import DOM from "./DOM";
       const response = await fetch(
         `https://coffe-store-api.fly.dev//buy/${id}`,
         {
-          mode: "CORS",
+          mode: "cors",
           method: "GET",
         }
       );
