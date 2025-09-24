@@ -47,6 +47,7 @@ import DOM from "./DOM";
   };
 
   getData(id).then((res) => {
+    if (!res) return;
     if (res?.new_user) {
       alert("I created your account with the id " + id);
     }
@@ -56,6 +57,7 @@ import DOM from "./DOM";
 
   DOM.BUY_BUTTON.addEventListener("click", () => {
     buyCoffee(id).then((res) => {
+      if (!res) return;
       updateUI(res.user);
     });
   });
