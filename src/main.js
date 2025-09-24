@@ -5,7 +5,7 @@ import DOM from "./DOM";
   const getData = async (id) => {
     try {
       const response = await fetch(
-        `https://coffe-store-api.fly.dev//get_user/${id}`,
+        `https://coffe-store-api.fly.dev/get_user/${id}`,
         {
           mode: "cors",
           method: "GET",
@@ -24,7 +24,7 @@ import DOM from "./DOM";
   const buyCoffee = async (id) => {
     try {
       const response = await fetch(
-        `https://coffe-store-api.fly.dev//buy/${id}`,
+        `https://coffe-store-api.fly.dev/buy/${id}`,
         {
           mode: "cors",
           method: "GET",
